@@ -95,18 +95,26 @@ body {
 }
 
 #heroContent {
+  position: relative;
   padding-left: 40px;
-  background-image: url("./assets/Lungs_Static.png");
-  background-position: right top;
-  background-repeat: no-repeat;
-  background-size: 94%;
-
+  overflow: hidden;
 }
+
+#heroVideo {
+  position: absolute;
+  right: -300px;
+  top: 0;
+  width: 100%;
+  height: auto;
+  min-width: 100%;
+  min-height: 100%;
+}
+
 
 .headerTopCopy {
   color: #ffffff;
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 400;
   
 }
 
@@ -172,9 +180,24 @@ body {
 }
 
 .CTAContainer {
-  padding-bottom: 48px;
+  padding-bottom: 60px;
   position: relative;
   top: 40px;
+}
+
+.pt-70{
+  padding-top: 70px !important;
+}
+.pt-15{
+  padding-top: 15px;
+}
+
+.pt-25{
+  padding-top: 25px;
+}
+
+.pb-50{
+  padding-bottom: 50px !important;
 }
 
 .bodyContentSectionContainer {
@@ -305,6 +328,8 @@ body {
   color: var(--umndPrimaryRed, #ff005a);
   font-size: 51px;
   text-transform: uppercase;
+  position: relative;
+  top: -9px;
 }
 
 .pb-75 {
@@ -368,7 +393,25 @@ body {
   font-family: "din-2014", sans-serif;
 }
 
+.checkboxContainer {
+  display: flex;
+  align-items: flex-start; /* Aligns the checkbox to the top of the container */
+}
+
+.checkboxContainer input[type="checkbox"] {
+  margin-top: 0.3em; /* Adjusts the position of the checkbox slightly for better alignment */
+  margin-right: 10px; /* Space between the checkbox and the label */
+}
+
+.checkboxContainer label {
+  display: block;
+  text-align: justify;
+  /* If you want to limit the width of the label text */
+  max-width: 600px; /* Adjust the max-width as needed */
+}
+
 .signUpButton {
+  border: none;
   display: flex;
   padding: 10px 30px;
   justify-content: center;
@@ -377,6 +420,15 @@ body {
   border-radius: 10px;
 background: var(--umndYellow, #FDE9AA);
 max-width: 175px;
+margin-top: 10px;
+}
+
+.signUpButton:hover{
+  cursor: pointer;
+}
+
+button:hover{
+  cursor: pointer;
 }
 
 .signUpBtnTxt{
@@ -397,7 +449,7 @@ input[type="checkbox"] {
   border: 1px solid #FFFFFF; /* Optional: white border */
   border-radius: 15px; /* Slightly rounded corners */
   padding: 10px; /* Some padding inside the input fields */
-  margin-bottom: 15px; /* Space between the input fields */
+
   width: calc(100% - 22px); /* Full width with padding and border accounted for */
 }
 
@@ -437,9 +489,9 @@ input::placeholder {
 .footnotes p::before {
   content: attr(data-symbol);
   position: absolute;
-  left: -9px; /* Aligns the pseudo-element to the left */
-  top: 0;
-  font-size: 10px;
+  left: -7px;
+  top: -3px;
+  font-size: 9px;
 }
 
 .bottomCopy{
@@ -468,9 +520,67 @@ sup {
   font-size: smaller;
   line-height: 0; /* Reset line-height to avoid affecting the line */
 }
+input[type="email"], input[type="checkbox"] {
+  /* your existing styles */
+  transition: border-color 0.3s; /* Smooth transition for color change */
+}
 
+label {
+  /* your existing styles */
+  transition: color 0.3s; /* Smooth transition for color change */
+}
+.customPadding{
+  padding-top: 57px !important;
+}
 
 @media screen and (max-width: 768px) {
+
+  .customPadding {
+    padding-top: 31px !important;}
+
+  #heroVideo {
+    position: relative;
+    /* right: -300px; */
+    left: -19px;
+    top: 0;
+    margin-bottom: -91px;
+   width: 100vw;
+   
+    height: auto;
+    min-width: 100%;
+    min-height: 100%;
+}
+  .novelModalityCopy span {
+   line-height: 1;
+}
+
+  .customMobileMargin{
+    margin-top: 36px !important;
+  }
+  .customContainerPadding{
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .mediaOSContentContainer {
+
+    border-bottom: none;
+  }
+  .lungsMobile{
+    width: 100vw;
+    margin-left: -20px !important;
+   
+
+
+    margin-right: -20px !important;
+    max-width: 117% !important;
+  }
+
+  .ml-0-mobile{
+    margin-left: 0 !important;
+  }
   .gradientContainer{
     background-image: url("./assets/circlegradient.svg");
     background-position: right -710px;
@@ -530,6 +640,7 @@ sup {
   padding-left: 0px;
   background-image: none;
   margin-left: 20px;
+  overflow: visible;
 
 }
 
@@ -539,9 +650,11 @@ sup {
     padding-right: 20px;
   }
   .bodyContentSectionContainer{
-    padding-left: 20px;
-    margin-left: 0px;
+    margin-left: 20px;
+    /* margin-left: 0px; */
     margin-top: 100px;
+    margin-right: 20px;
+    border-bottom: 2px solid #fde9aa;
   }
 
   .novelModalityContentContainer {
@@ -585,6 +698,7 @@ sup {
     justify-content: flex-start;
     height: 100%;
   margin-left: 20px;
+  margin-right: 20px;
 }
 
   .heroContentCTAContainer{
@@ -614,6 +728,6 @@ sup {
   }
 
   #header {
-    padding-left: 10px;
+    padding-left: 20px;
   }
 }
