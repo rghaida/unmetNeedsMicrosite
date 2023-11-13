@@ -108,6 +108,9 @@ body {
   height: auto;
   min-width: 100%;
   min-height: 100%;
+  object-fit: contain;
+  overflow-clip-margin: content-box;
+  overflow: clip;
 }
 
 
@@ -533,7 +536,28 @@ label {
   padding-top: 57px !important;
 }
 
+.thankyou{
+  padding-left: 20px;
+}
+
 @media screen and (max-width: 768px) {
+
+  .signUpButton{
+    max-width: 185px;
+  }
+  .CTASignup {
+
+    width: 120px;
+  
+  }
+
+  #heroGif{
+    left: -20px;
+    margin-bottom: -34px;
+    position: relative;
+    width: 100vw;
+    max-width: 110vw !important;
+  }
 
   .customPadding {
     padding-top: 31px !important;}
@@ -650,10 +674,12 @@ label {
     padding-right: 20px;
   }
   .bodyContentSectionContainer{
-    margin-left: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 20px;
     /* margin-left: 0px; */
     margin-top: 100px;
-    margin-right: 20px;
+    padding-right: 20px;
     border-bottom: 2px solid #fde9aa;
   }
 
