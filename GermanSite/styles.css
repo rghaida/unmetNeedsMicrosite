@@ -353,7 +353,7 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   padding: 20px;
-  margin-left: 138px;
+  padding-left: 138px;
 }
 
 .signUpContent {
@@ -532,10 +532,15 @@ label {
 }
 
 .thankyou{
-  padding-left: 20px;
+
+  margin-left: 138px;
 }
 
 @media screen and (max-width: 768px) {
+  .thankyou{
+    padding-left: 20px;
+    margin-left: 0px;
+  }
   .sectionHeader {
     font-size: 36px;
   }
@@ -646,6 +651,7 @@ label {
     line-height: 26px;
     font-weight: 400;
     margin-top: 0px;
+    margin-right: 20px;
   }
   .headerMainCopy {
     font-size: 49px;
@@ -726,6 +732,7 @@ label {
   }
   .signUpContainer {
     margin-left: 0px;
+    padding-left: 20px;
     display: block;
   }
 
