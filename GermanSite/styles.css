@@ -320,6 +320,7 @@ body {
   /* text-transform: lowercase; */
   margin-top: 200px;
   margin-bottom: 200px;
+  padding-left: 10px;
 }
 
 
@@ -548,10 +549,10 @@ label {
   }
 
   .signUpButton {
-    max-width: 185px;
+    max-width: 200px;
   }
   .CTASignup {
-    width: 120px;
+    width: 150px;
   }
 
   #heroGif {
