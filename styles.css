@@ -102,8 +102,9 @@ body {
 
 #heroVideo {
   position: absolute;
-  right: -300px;
+
   top: 0;
+
   width: 100%;
   height: auto;
   min-width: 100%;
@@ -302,6 +303,7 @@ body {
   background-repeat: no-repeat;
   background-position: center right;
   display: flex;
+  background-size: contain;
   align-items: center;
   justify-content: flex-start;
   height: 100%; /* This will make the section take the full height of the background image */
@@ -408,7 +410,7 @@ body {
 
 .checkboxContainer label {
   display: block;
-  text-align: justify;
+
   /* If you want to limit the width of the label text */
   max-width: 600px; /* Adjust the max-width as needed */
 }
@@ -580,6 +582,8 @@ label {
 }
   .novelModalityCopy span {
    line-height: 1;
+   position: relative;
+   top: 10px;
 }
 
   .customMobileMargin{

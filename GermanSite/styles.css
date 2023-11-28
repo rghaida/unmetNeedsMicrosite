@@ -102,6 +102,7 @@ body {
 #heroVideo {
   position: absolute;
   right: -300px;
+  scale: 1.18;
   top: 0;
   width: 100%;
   height: auto;
