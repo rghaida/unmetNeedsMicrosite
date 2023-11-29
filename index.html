@@ -39,7 +39,7 @@
           style="display: none;    width: 100vw;margin-left: -20px;margin-right: 0px;max-width: 105%;  margin-bottom: -55px;  margin-top: -40px;"
         /> -->
           <p class="headerTopCopy">
-            In the treatment of metastatic non-small cell lung cancer (NSCLC),
+            In the treatment of metastatic non&#8209small cell lung cancer (NSCLC),
           </p>
           <div class="shortLine"></div>
           <h1 class="headerMainCopy">
@@ -167,7 +167,7 @@
         <div class="novelModalityContentContainer">
           <img
           class="img logo mobile lungsMobile"
-          src="./assets/Lungs-Mobile.svg"
+          src="./assets/v2-lungs-mobile.png"
           alt="Novocure Logo"
           style="display: none;    width: 100vw;
           margin-left: -20px;
@@ -220,6 +220,31 @@
               name="confirmEmail"
               required
             />
+
+            <label for="specialty">Specialty<span style="color:#ff005a">*</span></label>
+            <input type="text" id="specialty" name="specialty" required />
+    
+            <label id="npiLabel" for="npiNumber">NPI / License Number<span style="color:#ff005a">*</span></label>
+            <div class="npi-container">
+                <input type="text" id="npiNumber" name="npiNumber" required />
+            
+                <span class="npi-info-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="11.5" stroke="white"/>
+                    <text x="11" y="16" font-family="Arial, sans-serif" font-size="12px" fill="white">i</text>
+                </svg>
+                
+                </span>
+                <div class="npi-hover-modal">
+                    <span style="color: white;">Use this link <a href="https://npiregistry.cms.hhs.gov/" style="text-decoration: underline">https://npiregistry.cms.hhs.gov/</a> to look up your NPI number.</span>
+                </div>
+            </div>
+    
+            <label for="institutionName">Institution Name</label>
+            <input type="text" id="institutionName" name="institutionName" />
+    
+            <label for="institutionAddress">Institution Address</label>
+            <input type="text" id="institutionAddress" name="institutionAddress" />
 
             <div class="checkboxContainer">
               <input type="checkbox" id="agree" name="agree" />
@@ -319,7 +344,7 @@
           <img src="./assets/Novocure_Logo.svg" />
           <p class="bottomCopy"><span style="font-size: 11px;
             position: relative;
-            top: -2px;">©</span>2023 Novocure GmbH. All Rights Reserved. Novocure is a registered trademark of Novocure GmbH. GLB-NOV-XXXX v1.0 November 2023</p>
+            top: -2px;">©</span>2023 Novocure GmbH. All Rights Reserved. Novocure is a registered trademark of Novocure GmbH. GLB-NOV-0082 v1.0 November 2023</p>
         </div>
       </section>
     </div>
