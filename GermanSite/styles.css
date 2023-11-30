@@ -87,7 +87,34 @@ body {
   padding-left: 40px;
   border-bottom: solid 2px #ff005a;
 }
+.npi-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
 
+.npi-info-icon {
+  position: absolute;
+  right: 35px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.npi-hover-modal {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  right: 30px;
+
+
+  padding: 8px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.npi-info-icon:hover + .npi-hover-modal {
+  display: block;
+}
 .logo {
   margin-top: 15px;
   margin-bottom: 15px;
@@ -95,7 +122,7 @@ body {
 
 #heroContent {
   position: relative;
-  padding-left: 40px;
+  margin-left: 40px;
   overflow: hidden;
 }
 
@@ -540,6 +567,18 @@ label {
 }
 
 @media screen and (max-width: 768px) {
+
+  .npi-hover-modal {
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    right: 0px;
+    top: -101px;
+    left: -7px;
+    padding: 8px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
   .thankyou{
     padding-left: 20px;
     margin-left: 0px;
@@ -557,7 +596,7 @@ label {
 
   #heroGif {
     left: -20px;
-    margin-bottom: -34px;
+    margin-bottom: -100px;
     position: relative;
     width: 100vw;
     max-width: 110vw !important;
