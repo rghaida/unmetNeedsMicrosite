@@ -9,15 +9,37 @@ document.getElementById('formBtn').addEventListener('click', function(event) {
     const specialty = document.getElementById('specialty');
     const npiNumber = document.getElementById('npiNumber');
     const signUpContainer = document.querySelector('.signUpContainer');
+    // const institutionName = document.getElementById('institutionName');
+    const firstName = document.getElementById('firstName');
+    const lastName = document.getElementById('lastName');
+
 
     // Reset styles
-    resetStyles([emailAddress, confirmEmail, agreeCheckbox, specialty, npiNumber]);
+    resetStyles([emailAddress, confirmEmail, agreeCheckbox, specialty, npiNumber, firstName, lastName]);
 
+
+
+    if (!firstName.value) {
+        setErrorStyles([firstName]);
+        isValid = false;
+    }
+    
+    if (!lastName.value) {
+        setErrorStyles([lastName]);
+        isValid = false;
+    }
     // Check if email fields are filled and match
     if (!emailAddress.value || emailAddress.value !== confirmEmail.value) {
         setErrorStyles([emailAddress, confirmEmail]);
         isValid = false;
     }
+
+    // Check if institution name field is filled
+// if (!institutionName.value) {
+//     setErrorStyles([institutionName]);
+//     isValid = false;
+// }
+
 
     // Check if specialty and NPI number fields are filled
     if (!specialty.value || !npiNumber.value) {
@@ -119,6 +141,14 @@ infoIcon.addEventListener('touchstart', function(event) {
     isModalOpen = !isModalOpen; // Toggle the flag
 });
 
+institutionName.addEventListener('input', function() {
+    if (institutionName.value) {
+        resetStyles([institutionName]);
+    } else {
+        setErrorStyles([institutionName]);
+    }
+});
+
 // document.querySelector('.npi-info-icon').addEventListener('mouseleave', function() {
 //     document.querySelector('.npi-hover-modal').style.display = 'none';
 // });
@@ -160,3 +190,12 @@ agreeCheckbox.addEventListener('change', function() {
     }
 });
 
+[firstName, lastName].forEach(field => {
+    field.addEventListener('input', function() {
+        if (field.value) {
+            resetStyles([field]);
+        } else {
+            setErrorStyles([field]);
+        }
+    });
+});

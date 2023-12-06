@@ -129,7 +129,7 @@ body {
 #heroVideo {
   position: absolute;
 
-  top: 0;
+  top: 20px;
   width: 100%;
   height: auto;
   min-width: 100%;

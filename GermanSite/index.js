@@ -9,9 +9,29 @@ document.getElementById('formBtn').addEventListener('click', function(event) {
     const specialty = document.getElementById('specialty');
     const npiNumber = document.getElementById('npiNumber');
     const signUpContainer = document.querySelector('.signUpContainer');
+    const firstName = document.getElementById('firstName');
+    const lastName = document.getElementById('lastName');
+     const institutionName = document.getElementById('institutionName');
+
 
     // Reset styles
-    resetStyles([emailAddress, confirmEmail, agreeCheckbox, specialty, npiNumber]);
+    resetStyles([emailAddress, confirmEmail, agreeCheckbox, specialty, firstName, lastName, institutionName]);
+
+    if (!firstName.value) {
+        setErrorStyles([firstName]);
+        isValid = false;
+    }
+    
+    if (!lastName.value) {
+        setErrorStyles([lastName]);
+        isValid = false;
+    }
+
+    if (!institutionName.value) {
+    setErrorStyles([institutionName]);
+    isValid = false;
+}
+
 
     // Check if email fields are filled and match
     if (!emailAddress.value || emailAddress.value !== confirmEmail.value) {
@@ -20,8 +40,8 @@ document.getElementById('formBtn').addEventListener('click', function(event) {
     }
 
     // Check if specialty and NPI number fields are filled
-    if (!specialty.value || !npiNumber.value) {
-        setErrorStyles([specialty, npiNumber]);
+    if (!specialty.value ) {
+        setErrorStyles([specialty]);
         isValid = false;
     }
 
@@ -92,32 +112,11 @@ function resetStyles(elements) {
     });
 }
 
-const infoIcon = document.querySelector('.npi-info-icon');
-const modal = document.querySelector('.npi-hover-modal');
-const npiLabel = document.getElementById('npiLabel');
-let isModalOpen = false; // Flag to track modal state
 
-document.querySelector('.npi-info-icon').addEventListener('mouseenter', function() {
-    document.querySelector('.npi-hover-modal').style.display = 'block';
-});
 
-infoIcon.addEventListener('touchstart', function(event) {
-    event.preventDefault(); // Prevent the default touch action
 
-    // Toggle modal display
-    if (isModalOpen) {
-        modal.style.display = 'none';
-        if (window.innerWidth <= 768) { // Assuming mobile devices are <= 768px in width
-            npiLabel.style.paddingTop = '0px'; // Remove extra padding on mobile
-        }
-    } else {
-        modal.style.display = 'block';
-        if (window.innerWidth <= 768) { // Check if on mobile device
-            npiLabel.style.paddingTop = '70px'; // Add extra padding on mobile
-        }
-    }
-    isModalOpen = !isModalOpen; // Toggle the flag
-});
+
+
 
 // document.querySelector('.npi-info-icon').addEventListener('mouseleave', function() {
 //     document.querySelector('.npi-hover-modal').style.display = 'none';
@@ -137,8 +136,17 @@ const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
         }
     });
 });
+
+institutionName.addEventListener('input', function() {
+    if (institutionName.value) {
+        resetStyles([institutionName]);
+    } else {
+        setErrorStyles([institutionName]);
+    }
+});
+
 // Event listener for specialty and NPI number fields
-[specialty, npiNumber].forEach(field => {
+[specialty].forEach(field => {
     field.addEventListener('input', function() {
         if (field.value) {
             resetStyles([field]);
@@ -160,3 +168,12 @@ agreeCheckbox.addEventListener('change', function() {
     }
 });
 
+[firstName, lastName].forEach(field => {
+    field.addEventListener('input', function() {
+        if (field.value) {
+            resetStyles([field]);
+        } else {
+            setErrorStyles([field]);
+        }
+    });
+});
