@@ -12,6 +12,7 @@ document.getElementById('formBtn').addEventListener('click', function(event) {
     const firstName = document.getElementById('firstName');
     const lastName = document.getElementById('lastName');
      const institutionName = document.getElementById('institutionName');
+     const institutionAddress = document.getElementById('institutionAddress');
 
 
     // Reset styles
@@ -51,17 +52,92 @@ document.getElementById('formBtn').addEventListener('click', function(event) {
         isValid = false;
     }
 
-    if (isValid) {
-        // Hide form and show thank you message
-        document.querySelector('.signUpContent').style.display = 'none';
-        document.querySelector('.signUpForm').style.display = 'none';
-        document.querySelector('.thankyou').style.display = 'block';
-
-        // Update styles for signUpContainer
-        signUpContainer.style.paddingLeft = '0px';
-        signUpContainer.style.paddingTop = '40px';
+    if (!institutionAddress.value) {
+        institutionAddress.value = "NA";
     }
+
+   
+
+
+
+    if (isValid) {
+
+        document.getElementById('formBtn').disabled = true;
+        document.getElementById('btnImg').src = "./assets/loading_v2.gif";
+        document.getElementById('btnImg').style.width = "30px";
+        document.getElementById('btnImg').style.marginLeft = "-10px";
+
+
+
+        let formData = {
+            firstname: firstName.value,
+            lastname: lastName.value,
+            institution_name: institutionName.value,
+            email: emailAddress.value,
+            specialty: specialty.value,
+            // Additional required fields with default values
+            address_country: "Germany",
+            address_street_line_1: institutionAddress.value,
+            address_zip_postal_code: "00000",
+            // Add any other required fields here with "NA" as the default value
+        };
+
+         // Convert object to JSON, if needed
+         let jsonData = JSON.stringify(formData);
+
+           sendAjaxRequest(jsonData)
+        .then(response => {
+            document.getElementById('btnImg').src = "./assets/signUpArrow_larger.svg";
+            document.getElementById('formBtn').disabled = false;
+            document.getElementById('btnImg').style.marginLeft = "0px";
+
+            if (response.error) {
+                // Handle the error sent from PHP script
+                document.getElementById('errorMsg').textContent = 'Error from server: ' + response.error;
+            }
+            // Handle success
+            console.log('Success:', response);
+         
+
+
+            // Check if the submission was successful based on the response
+            if (response && response.outputParameters && response.outputParameters.SalesforceJsonResponse && response.outputParameters.SalesforceJsonResponse.success) {
+                // Submission was successful, execute the commented-out code
+                document.querySelector('.signUpContent').style.display = 'none';
+                document.querySelector('.signUpForm').style.display = 'none';
+                document.querySelector('.thankyou').style.display = 'block';
+
+                // Update styles for signUpContainer
+                signUpContainer.style.paddingLeft = '0px';
+                signUpContainer.style.paddingTop = '40px';
+            } else {
+                // Submission was not successful, handle accordingly (e.g., show an error message)
+                console.error('Submission failed:', response);
+                // Add code to handle submission failure here
+            }
+        })
+        .catch(error => {
+            // Handle AJAX request error
+            document.getElementById('btnImg').src = "./assets/signUpArrow_larger.svg";
+            document.getElementById('formBtn').disabled = false;
+            document.getElementById('btnImg').style.marginLeft = "0px";
+            document.getElementById('errorMsg').textContent = 'Error submitting form: ' + error.message;
+
+            console.error('Error:', error);
+            // Add code to handle AJAX request error here
+        });
+}
 });
+
+function sendAjaxRequest(data) {
+    return fetch('FormHandler.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: data
+    }).then(response => response.json());
+  }
 
 function setErrorStyles(elements) {
     elements.forEach(element => {
