@@ -53,7 +53,7 @@ document.getElementById('formBtn').addEventListener('click', function(event) {
     }
 
     if (!institutionAddress.value) {
-        institutionAddress.value = "NA";
+        institutionAddress.value = "";
     }
 
    
