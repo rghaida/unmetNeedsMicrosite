@@ -129,11 +129,12 @@ body {
 #heroVideo {
   position: absolute;
 
-  top: 20px;
+  top: 13%;
   width: 100%;
   height: auto;
+
   min-width: 100%;
-  min-height: 100%;
+  /* min-height: 100%; */
 }
 
 .headerTopCopy {
@@ -158,6 +159,7 @@ body {
   font-size: 89px;
   font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: -1px;
   line-height: 86px;
   font-family: "din-2014-narrow", sans-serif;
   margin-top: 30px;
